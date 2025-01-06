@@ -2,16 +2,9 @@ import requests
 import schedule
 import time
 import threading
-import os
 
-# Webhook-URL aus Umgebungsvariablen holen
-WEBHOOK_URL = os.getenv("WEBHOOK_URL")
-
-# Sicherstellen, dass die URL korrekt ist
-if not WEBHOOK_URL:
-    raise ValueError("WEBHOOK_URL ist ungültig oder leer!")
-else:
-    print(f"Webhook-URL: {WEBHOOK_URL}")
+# Webhook-URL (deine angepasste URL)
+WEBHOOK_URL = "https://discord.com/api/webhooks/1325851140859891915/Tzz4PtR7Fscu0X0fXzeRqToq0ctGJYRlU75F7uEHn256i-LBMAMz7-SBOFM1FKVBicRW"
 
 # Funktion zum Senden der Umfrage
 def send_poll():
@@ -31,8 +24,8 @@ def send_poll():
 def listen_for_command():
     while True:
         command = input("Gib einen Befehl ein: ").strip()
-        if command == "!SKIP":
-            print("!SKIP erkannt. Sende Umfrage sofort...")
+        if command == "!TIME-SKIP":
+            print("TIME-SKIP erkannt. Sende Umfrage sofort...")
             send_poll()
 
 # Zeitplan: Täglich um 10:00 Uhr
